@@ -91,7 +91,6 @@ public class HttpProcessor {
 			ServletException {
 		while (true) {
 			HttpHeader header = new HttpHeader();
-			;
 
 			// Read the next header
 			input.readHeader(header);

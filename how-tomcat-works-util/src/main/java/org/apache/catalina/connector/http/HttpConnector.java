@@ -899,6 +899,7 @@ public final class HttpConnector
     {
 
         // Acquire the server socket factory for this Connector
+        // 这里使用工厂创建socket 连接，为了以后扩展的方便
         ServerSocketFactory factory = getFactory();
 
         // If no address is specified, open a connection on all addresses

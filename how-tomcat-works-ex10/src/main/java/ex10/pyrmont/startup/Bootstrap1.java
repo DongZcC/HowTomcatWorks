@@ -12,11 +12,13 @@ import org.apache.catalina.Loader;
 import org.apache.catalina.Realm;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.connector.http.HttpConnector;
+import org.apache.catalina.core.ContainerBase;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.deploy.LoginConfig;
 import org.apache.catalina.deploy.SecurityCollection;
 import org.apache.catalina.deploy.SecurityConstraint;
 import org.apache.catalina.loader.WebappLoader;
+import org.apache.catalina.logger.SystemOutLogger;
 
 public final class Bootstrap1 {
   public static void main(String[] args) {
@@ -55,6 +57,14 @@ public final class Bootstrap1 {
     // add ContextConfig. This listener is important because it configures
     // StandardContext (sets configured to true), otherwise StandardContext
     // won't start
+
+
+    // add Log
+    SystemOutLogger logger = new SystemOutLogger();
+    context.setLogger(logger);
+    // set logger level
+
+    ((ContainerBase) context).setDebug(1);
 
     // add constraint
     SecurityCollection securityCollection = new SecurityCollection();
